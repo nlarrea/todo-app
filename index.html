@@ -12,8 +12,12 @@
 <body>
     <!-- ideas: https://www.youtube.com/watch?v=q0-N_w0Op84 -->
     <div class="container">
-        <form class="user-inputs-wrapper" action="">
-            <input type="text" name="todo-text" id="todo-text" placeholder="Learn programming">
+        <form id="user-inputs-wrapper" action="">
+            <div id="todo-input-wrapper">
+                <input type="text" name="todo-text" id="todo-input">
+                <span id="top-border"></span>
+                <label for="todo-input">Tasks</label>
+            </div>
             <button id="btn-add">
                 <i class="fa-solid fa-circle-plus"></i>
             </button>
@@ -27,22 +31,50 @@
         <section>
             <ul id="todos-wrapper">
                 <li class="todo-item-wrapper">
-                    <div class="todo-item">
-                        <label>This is an example</label>
-                        <input type="checkbox" class="btn-completed">
-                    </div>
+                    <p class="todo-text">This is an example</p>
+                    <button class="btn-completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </button>
                     <button class="btn-remove">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </li>
-                
+
+                <li class="todo-item-wrapper todo-completed">
+                    <p class="todo-text">This is a completed example</p>
+                    <button class="btn-completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </button>
+                    <button class="btn-remove">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </li>
+
                 <li class="todo-item-wrapper">
-                    <div class="todo-text">
-                        <label for="todo-1">This is an example</label>
-                    </div>
-                    <div class="btn-completed">
-                        <input type="checkbox" id="todo-1">
-                    </div>
+                    <p class="todo-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptas consequatur. Enim vel, quis aliquam doloribus minus molestiae repellat impedit facere blanditiis eos dicta repellendus!</p>
+                    <button class="btn-completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </button>
+                    <button class="btn-remove">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </li>
+
+                <li class="todo-item-wrapper">
+                    <p class="todo-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptas consequatur. Enim vel, quis aliquam doloribus minus molestiae repellat impedit facere blanditiis eos dicta repellendus!</p>
+                    <button class="btn-completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </button>
+                    <button class="btn-remove">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </li>
+
+                <li class="todo-item-wrapper">
+                    <p class="todo-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptas consequatur. Enim vel, quis aliquam doloribus minus molestiae repellat impedit facere blanditiis eos dicta repellendus!</p>
+                    <button class="btn-completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </button>
                     <button class="btn-remove">
                         <i class="fa-solid fa-trash"></i>
                     </button>

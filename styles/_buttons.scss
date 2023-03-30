@@ -1,0 +1,123 @@
+@use "global" as gb;
+
+#btn-add {
+    width: fit-content;
+    height: fit-content;
+
+    border: none;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+
+    i {
+        font-size: gb.$diameter;
+        color: gb.$secondary-color;
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+        
+        i {
+            --webkit-animation: pulse-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+            animation: pulse-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+        }
+    }
+}
+
+@-webkit-keyframes pulse-animation {
+    0% {
+        -webkit-transform: scale(100%);
+        transform: scale(100%);
+    }
+
+    50% {
+        -webkit-transform: scale(120%);
+        transform: scale(120%);
+    }
+
+    100% {
+        -webkit-transform: scale(100%);
+        transform: scale(100%);
+    }
+}
+
+@keyframes pulse-animation {
+    0% {
+        -webkit-transform: scale(100%);
+        transform: scale(100%);
+    }
+
+    50% {
+        -webkit-transform: scale(120%);
+        transform: scale(120%);
+    }
+
+    100% {
+        -webkit-transform: scale(100%);
+        transform: scale(100%);
+    }
+}
+
+.btn-remove {
+    width: calc(gb.$diameter * 1.5);
+    height: gb.$diameter;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 0 15px 15px 0;
+
+    background-color: gb.$main-white-color;
+
+    i {
+        font-size: 1.2em;
+        color: gb.$dark-white-color;
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+
+        background-color: gb.$dark-white-color;
+
+        i {
+            color: gb.$main-white-color;
+        }
+    }
+}
+
+.btn-completed {
+    width: calc(gb.$diameter * 1.5);
+    height: gb.$diameter;
+
+    background-color: gb.$secondary-color;
+    border: none;
+
+    font-size: 1.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+        color: white;
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+
+        opacity: 0.9;
+
+        i {
+            color: gb.$main-white-color;
+        }
+    }
+}
