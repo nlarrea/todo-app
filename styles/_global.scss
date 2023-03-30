@@ -1,0 +1,109 @@
+// VARIABLES
+
+$main-color: #14213d;
+$secondary-color: #fca311;
+$main-white-color: #e5e5e5;
+$dark-white-color: #9a9a9a;
+
+$diameter: 32px;
+
+// STYLES
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $main-color;
+}
+
+.container {
+    width: 100vw;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    // place-items: center;
+}
+
+#todos-wrapper {
+    padding: calc(10vh) 15px;
+
+    // overflow in Y
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 3fr));
+    gap: 10px;
+    
+    .todo-item-wrapper {
+        width: 100%;
+        height: $diameter;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        
+        .todo-text {
+            width: 100%;
+            height: 100%;
+
+            padding: 0 15px;
+
+            // overflow in X
+            overflow-x: auto;
+            white-space: nowrap;
+            // hide scrollbar when overflow
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            // ****************************
+
+            border-radius: 15px 0 0 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+
+            &:hover, &:focus {
+                background-color: $main-white-color
+            }
+        }
+    }
+
+    .todo-item-wrapper.todo-completed {
+        @extend .todo-item-wrapper;
+
+        opacity: 0.6;
+
+        .todo-text {
+            text-decoration: line-through;
+        }
+    }
+}
+
+
+
+/* MEDIA QUERIES -> cuando tenga menos de X anchura
+Container a una columna (1fr)
+
+Cambiar colores: main (azul marino) por el secundario (mostaza),
+y al revés. O SINO: poner el 'form' arriba en modo stiky (como
+si fuera un navbar) con fondo mostaza y los tasks que vayan
+haciendo scroll abajo
+*/
