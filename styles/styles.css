@@ -273,6 +273,9 @@ haciendo scroll abajo
   }
 }
 @media (max-width: 576px) {
+  #user-inputs-wrapper #todo-input-wrapper #todo-input {
+    max-width: 150px;
+  }
   #todos-wrapper {
     grid-template-columns: 300px;
   }
