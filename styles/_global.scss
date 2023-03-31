@@ -153,8 +153,8 @@ i {
     
             padding: 0 15px;
     
-            border: 1px solid transparent;
-            border-bottom: 1px solid $main-white-color;
+            border: 2px solid transparent;
+            border-bottom: 2px solid $main-white-color;
             border-radius: 0;
             color: $main-white-color;
             background-color: transparent;
@@ -165,14 +165,14 @@ i {
 
             &:hover {
                 border-radius: 15px;
-                border-bottom: 1px solid $secondary-color;
+                border-bottom: 2px solid $secondary-color;
             }
             
             &:focus, &:valid {
                 outline: none;
                 
                 border-radius: 15px;
-                border: 1px solid $secondary-color;
+                border: 2px solid $secondary-color;
             }
 
             &:focus ~ label, &:valid ~ label {
@@ -202,6 +202,8 @@ i {
 
         border: 1px solid transparent;
         border-radius: 15px;
+
+        color: $main-color;
 
         &:focus {
             outline: none;
