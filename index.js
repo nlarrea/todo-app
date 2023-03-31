@@ -110,14 +110,20 @@ filterTodos.addEventListener('change', e => {
 
 
 
-function getLocalTodos() {
-    let todos;
+// LOCAL STORAGE FUNCTIONS
 
+const getTodos = () => {
     if (localStorage.getItem('todos') === null) {
-        todos = [];
+        return [];
     } else {
-        todos = JSON.parse(localStorage.getItem('todos'));
+        return JSON.parse(localStorage.getItem('todos'));
     }
+}
+
+
+
+function getLocalTodos() {
+    let todos = getTodos();
 
     todos.forEach(todo => {
         createTodoItems(todo);
@@ -127,13 +133,7 @@ function getLocalTodos() {
 
 
 function saveLocalTodos(todo) {
-    let todos;
-
-    if (localStorage.getItem('todos') === null) {
-        todos = [];
-    } else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
+    let todos = getTodos();
 
     todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -142,13 +142,7 @@ function saveLocalTodos(todo) {
 
 
 function removeLocalTodos(todo) {
-    let todos;
-
-    if (localStorage.getItem('todos') === null) {
-        todos = [];
-    } else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
+    let todos = getTodos();
 
     todos.splice(todos.indexOf(todo), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
