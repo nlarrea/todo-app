@@ -121,3 +121,26 @@
         }
     }
 }
+
+#btn-remove-all {
+    width: calc(gb.$diameter * 2 + 10px);
+    height: calc(gb.$diameter);
+    padding: 5px;
+
+    border: none;
+    border-radius: 15px;
+
+    color: gb.$main-color;
+    background-color: gb.$secondary-color;
+
+    position: absolute;
+    right: calc(0px - gb.$diameter - 5px);
+    z-index: 10;
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+
+        color: gb.$main-white-color;
+    }
+}

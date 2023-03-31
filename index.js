@@ -1,6 +1,7 @@
 const todoInput = document.querySelector('#todo-input');
 const placeholder = document.querySelector('#placeholder');
 const addBtn = document.querySelector('#btn-add');
+const removeAllBtn = document.querySelector('#btn-remove-all');
 const filterTodos = document.querySelector('#filter-todos');
 
 const todosWrapper = document.querySelector('#todos-wrapper');
@@ -8,6 +9,7 @@ const todosWrapper = document.querySelector('#todos-wrapper');
 
 document.addEventListener('DOMContentLoaded', getLocalTodos);
 addBtn.addEventListener('click', addTodo);
+removeAllBtn.addEventListener('click', removeAllTodos);
 todosWrapper.addEventListener('click', editContent);
 
 
@@ -146,4 +148,11 @@ function removeLocalTodos(todo) {
 
     todos.splice(todos.indexOf(todo), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+
+
+function removeAllTodos() {
+    localStorage.clear();
+    location.reload();
 }
