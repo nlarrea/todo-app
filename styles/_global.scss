@@ -24,6 +24,10 @@ body {
     background-color: $main-color;
 }
 
+i {
+    pointer-events: none;
+}
+
 .container {
     width: 100%;
     max-width: 1500px;
@@ -56,6 +60,8 @@ body {
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
+
+        transition: all 0.5s ease;
         
         .todo-text {
             width: 100%;
@@ -98,7 +104,14 @@ body {
             text-decoration: line-through;
         }
     }
+
+    .todo-item-wrapper.slide {
+        transform: translateX(10rem);
+        opacity: 0;
+    }
 }
+
+
 
 #user-inputs-wrapper {
     width: 100%;
@@ -119,7 +132,7 @@ body {
     
             padding: 0 15px;
     
-            border: none;
+            border: 1px solid transparent;
             border-bottom: 1px solid $main-white-color;
             border-radius: 0;
             color: $main-white-color;
@@ -134,14 +147,14 @@ body {
                 border-bottom: 1px solid $secondary-color;
             }
             
-            &:focus {
+            &:focus, &:valid {
                 outline: none;
                 
                 border-radius: 15px;
                 border: 1px solid $secondary-color;
             }
 
-            &:focus ~ label {
+            &:focus ~ label, &:valid ~ label {
                 top: -10px;
                 left: 20px;
                 font-size: 0.8rem;

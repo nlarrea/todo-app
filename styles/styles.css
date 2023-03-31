@@ -14,6 +14,10 @@ body {
   background-color: #14213d;
 }
 
+i {
+  pointer-events: none;
+}
+
 .container {
   width: 100%;
   max-width: 1500px;
@@ -38,6 +42,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  transition: all 0.5s ease;
 }
 #todos-wrapper .todo-item-wrapper .todo-text {
   width: 100%;
@@ -66,6 +71,10 @@ body {
 #todos-wrapper .todo-item-wrapper.todo-completed .todo-text {
   text-decoration: line-through;
 }
+#todos-wrapper .todo-item-wrapper.slide {
+  transform: translateX(10rem);
+  opacity: 0;
+}
 
 #user-inputs-wrapper {
   width: 100%;
@@ -82,7 +91,7 @@ body {
 #user-inputs-wrapper #todo-input-wrapper #todo-input {
   height: 32px;
   padding: 0 15px;
-  border: none;
+  border: 1px solid transparent;
   border-bottom: 1px solid #e5e5e5;
   border-radius: 0;
   color: #e5e5e5;
@@ -95,12 +104,12 @@ body {
   border-radius: 15px;
   border-bottom: 1px solid #fca311;
 }
-#user-inputs-wrapper #todo-input-wrapper #todo-input:focus {
+#user-inputs-wrapper #todo-input-wrapper #todo-input:focus, #user-inputs-wrapper #todo-input-wrapper #todo-input:valid {
   outline: none;
   border-radius: 15px;
   border: 1px solid #fca311;
 }
-#user-inputs-wrapper #todo-input-wrapper #todo-input:focus ~ label {
+#user-inputs-wrapper #todo-input-wrapper #todo-input:focus ~ label, #user-inputs-wrapper #todo-input-wrapper #todo-input:valid ~ label {
   top: -10px;
   left: 20px;
   font-size: 0.8rem;

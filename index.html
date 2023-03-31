@@ -14,8 +14,8 @@
     <div class="container">
         <form id="user-inputs-wrapper" action="">
             <div id="todo-input-wrapper">
-                <input type="text" name="todo-text" id="todo-input">
-                <label for="todo-input">Tasks</label>
+                <input type="text" name="todo-text" id="todo-input" required>
+                <label for="todo-input" id="placeholder">Tasks</label>
             </div>
             <button id="btn-add">
                 <i class="fa-solid fa-circle-plus"></i>
@@ -28,88 +28,9 @@
         </form>
     
         <section>
-            <ul id="todos-wrapper">
-                <li class="todo-item-wrapper">
-                    <p class="todo-text">This is an example</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper todo-completed">
-                    <p class="todo-text">This is a completed example</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper">
-                    <p class="todo-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptas consequatur. Enim vel, quis aliquam doloribus minus molestiae repellat impedit facere blanditiis eos dicta repellendus!</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper">
-                    <p class="todo-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptas consequatur. Enim vel, quis aliquam doloribus minus molestiae repellat impedit facere blanditiis eos dicta repellendus!</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper">
-                    <p class="todo-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, voluptas consequatur. Enim vel, quis aliquam doloribus minus molestiae repellat impedit facere blanditiis eos dicta repellendus!</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper todo-completed">
-                    <p class="todo-text">This is a completed example</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper todo-completed">
-                    <p class="todo-text">This is a completed example</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-
-                <li class="todo-item-wrapper todo-completed">
-                    <p class="todo-text">This is a completed example</p>
-                    <button class="btn-completed">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </button>
-                    <button class="btn-remove">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </li>
-            </ul>
+            <ul id="todos-wrapper"></ul>
         </section>
     </div>
 </body>
+<script src="./index.js"></script>
 </html>
