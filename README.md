@@ -10,13 +10,6 @@ It uses local storage to save the tasks, so you can close the browser and the ta
 
 </div>
 
-<style>
-    img {
-        width: 75%;
-        max-width: 600px;
-    }
-</style>
-
 
 <br><hr>
 <hr><br>

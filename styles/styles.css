@@ -271,4 +271,9 @@ haciendo scroll abajo
     padding: 0;
     max-width: 100vw;
   }
+}
+@media (max-width: 576px) {
+  #todos-wrapper {
+    grid-template-columns: 300px;
+  }
 }/*# sourceMappingURL=styles.css.map */

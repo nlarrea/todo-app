@@ -52,3 +52,9 @@ haciendo scroll abajo
         max-width: 100vw;
     }
 }
+
+@media (max-width: 576px) {
+    #todos-wrapper {
+        grid-template-columns: 300px;
+    }
+}
