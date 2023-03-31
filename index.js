@@ -14,38 +14,45 @@ todosWrapper.addEventListener('click', editContent);
 
 // ADDING NEW TODO
 
+const createTodoItems = (element, saveToLocal = false) => {
+    // create <p> and buttons
+    let newP = document.createElement('p');
+    newP.classList.add('todo-text')
+    newP.innerText = element;
+
+    let newCompleted = document.createElement('button');
+    newCompleted.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+    newCompleted.classList.add('btn-completed');
+
+    let newRemove = document.createElement('button');
+    newRemove.innerHTML = '<i class="fa-solid fa-trash"></i>';
+    newRemove.classList.add('btn-remove');
+
+    // create <li>
+    let newTodoItem = document.createElement('li');
+    newTodoItem.classList.add('todo-item-wrapper');
+
+    // add <p> and buttons to <li>
+    newTodoItem.appendChild(newP);
+    newTodoItem.appendChild(newCompleted);
+    newTodoItem.appendChild(newRemove);
+
+    // add <li> to <ul>
+    todosWrapper.appendChild(newTodoItem);
+
+    if (saveToLocal) {
+        saveLocalTodos(newP.innerText);
+    }
+}
+
 function addTodo(e) {
     e.preventDefault();
 
     if (!todoInput.value) {
         alert('You should write something before adding it!');
     } else {
-        // create <p> and buttons
-        let newP = document.createElement('p');
-        newP.classList.add('todo-text')
-        newP.innerText = todoInput.value;
+        createTodoItems(todoInput.value, saveToLocal = true);
 
-        let newCompleted = document.createElement('button');
-        newCompleted.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-        newCompleted.classList.add('btn-completed');
-
-        let newRemove = document.createElement('button');
-        newRemove.innerHTML = '<i class="fa-solid fa-trash"></i>';
-        newRemove.classList.add('btn-remove');
-
-        // create <li>
-        let newTodoItem = document.createElement('li');
-        newTodoItem.classList.add('todo-item-wrapper');
-
-        // add <p> and buttons to <li>
-        newTodoItem.appendChild(newP);
-        newTodoItem.appendChild(newCompleted);
-        newTodoItem.appendChild(newRemove);
-
-        // add <li> to <ul>
-        todosWrapper.appendChild(newTodoItem);
-
-        saveLocalTodos(newP.innerText);
         todoInput.value = '';
     }
 }
@@ -113,30 +120,7 @@ function getLocalTodos() {
     }
 
     todos.forEach(todo => {
-        // create <p> and buttons
-        let newP = document.createElement('p');
-        newP.classList.add('todo-text')
-        newP.innerText = todo;
-
-        let newCompleted = document.createElement('button');
-        newCompleted.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-        newCompleted.classList.add('btn-completed');
-
-        let newRemove = document.createElement('button');
-        newRemove.innerHTML = '<i class="fa-solid fa-trash"></i>';
-        newRemove.classList.add('btn-remove');
-
-        // create <li>
-        let newTodoItem = document.createElement('li');
-        newTodoItem.classList.add('todo-item-wrapper');
-
-        // add <p> and buttons to <li>
-        newTodoItem.appendChild(newP);
-        newTodoItem.appendChild(newCompleted);
-        newTodoItem.appendChild(newRemove);
-
-        // add <li> to <ul>
-        todosWrapper.appendChild(newTodoItem);
+        createTodoItems(todo);
     })
 }
 
