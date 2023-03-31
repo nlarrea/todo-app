@@ -1,0 +1,44 @@
+/* MEDIA QUERIES -> cuando tenga menos de X anchura
+Container a una columna (1fr)
+
+Cambiar colores: main (azul marino) por el secundario (mostaza),
+y al revés. O SINO: poner el 'form' arriba en modo stiky (como
+si fuera un navbar) con fondo mostaza y los tasks que vayan
+haciendo scroll abajo
+*/
+
+@use "global" as gb;
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 100%;
+
+        grid-template-columns: 1fr;
+        place-items: center;
+
+        position: relative;
+    }
+
+    section {
+        max-width: 80vw;
+    }
+
+    #user-inputs-wrapper {
+        max-width: 100%;
+        height: 80px;
+
+        margin-bottom: 10px;
+
+        background-color: gb.$main-color;
+        border-bottom: 3px solid gb.$secondary-color;
+
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    #todos-wrapper {
+        padding: 0;
+        max-width: 100vw;
+    }
+}
