@@ -7,9 +7,8 @@ const todosWrapper = document.querySelector('#todos-wrapper');
 
 
 document.addEventListener('DOMContentLoaded', getLocalTodos);
-console.log(document.addEventListener('DOMContentLoaded', getLocalTodos));
 addBtn.addEventListener('click', addTodo);
-todosWrapper.addEventListener('click', deleteCheck);
+todosWrapper.addEventListener('click', editContent);
 
 
 
@@ -55,9 +54,10 @@ function addTodo(e) {
 
 // REMOVING TODO
 
-function deleteCheck(e) {
+function editContent(e) {
     const item = e.target;
 
+    // remove item
     if (item.classList.contains('btn-remove')) {
         const todo = item.parentElement;
         todo.classList.add('slide');
@@ -68,9 +68,18 @@ function deleteCheck(e) {
         })
     }
 
+    // mark as completed
     if (item.classList.contains('btn-completed')) {
         const todo = item.parentElement;
         todo.classList.toggle('todo-completed');
+    }
+
+    // copy text to clipboard
+    if (item.classList.contains('todo-text')) {
+        const textToCopy = item.innerText;
+
+        // copy to clipboard
+        navigator.clipboard.writeText(textToCopy);
     }
 }
 
