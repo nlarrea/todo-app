@@ -101,6 +101,8 @@ body {
     width: 100%;
     height: 100vh;
 
+    padding: 0 5vw;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,9 +112,6 @@ body {
         position: relative;
 
         #todo-input {
-            /* modificar por algo parecido a esto
-            https://uiverse.io/G4b413l/mean-stingray-9
-            */
             height: $diameter;
     
             padding: 0 15px;
@@ -158,30 +157,18 @@ body {
 
             transition: all 0.2s ease;
         }
+    }
 
-        #top-border {
-            position: relative;
-            display: block;
-        }
+    #filter-todos {
+        height: $diameter;
+        padding: 0 8px;
 
-        #top-border:before, #top-border:after {
-            position: absolute;
-            top: -$diameter;
-            left: 15px;
-            z-index: 1;
-            content: '';
-            height: 3px;
-            width: 22%;
-            background-color: $main-color;
+        border: 1px solid transparent;
+        border-radius: 15px;
+
+        &:focus {
+            outline: none;
+            background-color: $main-white-color;
         }
     }
 }
-
-/* MEDIA QUERIES -> cuando tenga menos de X anchura
-Container a una columna (1fr)
-
-Cambiar colores: main (azul marino) por el secundario (mostaza),
-y al revés. O SINO: poner el 'form' arriba en modo stiky (como
-si fuera un navbar) con fondo mostaza y los tasks que vayan
-haciendo scroll abajo
-*/

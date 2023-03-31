@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   scroll-behavior: smooth;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -69,6 +68,7 @@ body {
 #user-inputs-wrapper {
   width: 100%;
   height: 100vh;
+  padding: 0 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,9 +78,6 @@ body {
   position: relative;
 }
 #user-inputs-wrapper #todo-input-wrapper #todo-input {
-  /* modificar por algo parecido a esto
-  https://uiverse.io/G4b413l/mean-stingray-9
-  */
   height: 32px;
   padding: 0 15px;
   border: none;
@@ -116,29 +113,17 @@ body {
   z-index: 2;
   transition: all 0.2s ease;
 }
-#user-inputs-wrapper #todo-input-wrapper #top-border {
-  position: relative;
-  display: block;
+#user-inputs-wrapper #filter-todos {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 15px;
 }
-#user-inputs-wrapper #todo-input-wrapper #top-border:before, #user-inputs-wrapper #todo-input-wrapper #top-border:after {
-  position: absolute;
-  top: -32px;
-  left: 15px;
-  z-index: 1;
-  content: "";
-  height: 3px;
-  width: 22%;
-  background-color: #14213d;
+#user-inputs-wrapper #filter-todos:focus {
+  outline: none;
+  background-color: #e5e5e5;
 }
 
-/* MEDIA QUERIES -> cuando tenga menos de X anchura
-Container a una columna (1fr)
-
-Cambiar colores: main (azul marino) por el secundario (mostaza),
-y al revés. O SINO: poner el 'form' arriba en modo stiky (como
-si fuera un navbar) con fondo mostaza y los tasks que vayan
-haciendo scroll abajo
-*/
 #btn-add {
   width: -moz-fit-content;
   width: fit-content;
