@@ -23,14 +23,24 @@ haciendo scroll abajo
         max-width: 80vw;
     }
 
+    .left {
+        width: 100vw;
+        margin-bottom: 10px;
+
+        border: none;
+        border-bottom: 3px solid gb.$secondary-color;
+
+        h1 {
+            display: none;
+        }
+    }
+
     #user-inputs-wrapper {
         max-width: 100%;
         height: 80px;
 
-        margin-bottom: 10px;
 
         background-color: gb.$main-color;
-        border-bottom: 3px solid gb.$secondary-color;
 
         position: sticky;
         top: 0;

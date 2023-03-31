@@ -26,10 +26,26 @@ i {
   grid-template-columns: 2fr 3fr;
 }
 
+.left {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  position: relative;
+  border-right: 3px solid #fca311;
+}
+.left h1 {
+  position: absolute;
+  top: 20%;
+  font-size: 3rem;
+  border-bottom: 1px solid #fca311;
+  color: #e5e5e5;
+}
+
 #todos-wrapper {
   max-width: 100%;
   padding: 10px 15px;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   display: grid;
@@ -233,12 +249,19 @@ haciendo scroll abajo
   section {
     max-width: 80vw;
   }
+  .left {
+    width: 100vw;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 3px solid #fca311;
+  }
+  .left h1 {
+    display: none;
+  }
   #user-inputs-wrapper {
     max-width: 100%;
     height: 80px;
-    margin-bottom: 10px;
     background-color: #14213d;
-    border-bottom: 3px solid #fca311;
     position: sticky;
     top: 0;
     z-index: 10;

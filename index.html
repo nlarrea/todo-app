@@ -12,20 +12,23 @@
 <body>
     <!-- ideas: https://www.youtube.com/watch?v=q0-N_w0Op84 -->
     <div class="container">
-        <form id="user-inputs-wrapper" action="">
-            <div id="todo-input-wrapper">
-                <input type="text" name="todo-text" id="todo-input" required>
-                <label for="todo-input" id="placeholder">Tasks</label>
-            </div>
-            <button id="btn-add">
-                <i class="fa-solid fa-circle-plus"></i>
-            </button>
-            <select name="filter" id="filter-todos">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="incompleted">Incompleted</option>
-            </select>
-        </form>
+        <div class="left">
+            <h1>My Todo List</h1>
+            <form id="user-inputs-wrapper" action="">
+                <div id="todo-input-wrapper">
+                    <input type="text" name="todo-text" id="todo-input" required>
+                    <label for="todo-input" id="placeholder">Tasks</label>
+                </div>
+                <button id="btn-add">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+                <select name="filter" id="filter-todos">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="incompleted">Incompleted</option>
+                </select>
+            </form>
+        </div>
     
         <section>
             <ul id="todos-wrapper"></ul>
