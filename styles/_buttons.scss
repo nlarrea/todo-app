@@ -165,3 +165,32 @@
         color: gb.$main-white-color;
     }
 }
+
+#copy-clipboard {
+    width: fit-content;
+    height: fit-content;
+
+    padding: 5px 10px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: gb.$main-color;
+    color: gb.$main-white-color;
+
+    pointer-events: all;
+
+    transition: all 0.3s;
+
+    i {
+        margin-right: 5px;
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+
+        border: 1px solid gb.$main-color;
+        background-color: gb.$secondary-color;
+        color: gb.$main-color;
+    }
+}

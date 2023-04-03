@@ -9,8 +9,6 @@ const todosWrapper = document.querySelector('#todos-wrapper');
 const modal = document.querySelector('#modal');
 const closeModalBtn = document.querySelector('#close-modal');
 
-var todos = [];
-
 
 document.addEventListener('DOMContentLoaded', getLocalTodos);
 addBtn.addEventListener('click', addTodo);
@@ -24,8 +22,9 @@ todosWrapper.addEventListener('click', editContent);
 const createTodoItems = (element, saveToLocal = false) => {
     // create <p> and buttons
     let newP = document.createElement('p');
-    newP.classList.add('todo-text')
-    newP.innerText = element;
+    newP.classList.add('todo-text');
+    if (saveToLocal) newP.innerText = element;
+    else newP.innerText = element.text;
 
     let newCompleted = document.createElement('button');
     newCompleted.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
@@ -37,7 +36,12 @@ const createTodoItems = (element, saveToLocal = false) => {
 
     // create <li>
     let newTodoItem = document.createElement('li');
-    newTodoItem.classList.add('todo-item-wrapper');
+    if (saveToLocal) newTodoItem.classList.add('todo-item-wrapper');
+    else {
+        Object.values(element.classes).forEach(elementClass => {
+            newTodoItem.classList.add(elementClass);
+        })
+    }
 
     // add <p> and buttons to <li>
     newTodoItem.appendChild(newP);
@@ -48,9 +52,10 @@ const createTodoItems = (element, saveToLocal = false) => {
     todosWrapper.appendChild(newTodoItem);
 
     if (saveToLocal) {
-        saveLocalTodos(newP.innerText);
+        saveLocalTodos({text: newP.innerText, classes: newTodoItem.classList});
     }
 }
+
 
 function addTodo(e) {
     e.preventDefault();
@@ -76,7 +81,7 @@ function editContent(e) {
         const todo = item.parentElement;
         todo.classList.add('slide');
 
-        removeLocalTodos(todo.children[0].innerText);
+        removeLocalTodos(todo);
         todo.addEventListener('transitionend', function() {
             todo.remove();
         })
@@ -86,6 +91,9 @@ function editContent(e) {
     if (item.classList.contains('btn-completed')) {
         const todo = item.parentElement;
         todo.classList.toggle('todo-completed');
+
+        // update stored class value
+        updateStoredClass(todo);
     }
 
     // open the modal
@@ -96,13 +104,15 @@ function editContent(e) {
     }
 }
 
+
 // close the modal
 closeModalBtn.addEventListener('click', (e) => {
     modal.style.display = 'none';
 });
 
+
 window.addEventListener('click', (e) => {
-    if (e.target !== modal && e.target.parentElement.id !== 'modal-body') {
+    if (e.target !== modal && e.target.parentElement.id !== 'modal-body' && e.target.id !== 'copy-clipboard') {
         modal.style.display = 'none';
     }
 });
@@ -129,45 +139,49 @@ filterTodos.addEventListener('change', e => {
 
 // LOCAL STORAGE FUNCTIONS
 
-const getTodos = () => {
-    if (localStorage.getItem('todos') === null) {
+const getTodosObjList = () => {
+    if (localStorage.getItem('todosObjList') === null) {
         return [];
     } else {
-        return JSON.parse(localStorage.getItem('todos'));
+        return JSON.parse(localStorage.getItem('todosObjList'));
     }
 }
 
 
-
 function getLocalTodos() {
-    let todos = getTodos();
+    let todosObjList = getTodosObjList();
 
-    todos.forEach(todo => {
-        createTodoItems(todo);
+    todosObjList.forEach(todoObj => {
+        createTodoItems(todoObj);
     })
 }
 
 
-
 function saveLocalTodos(todo) {
-    let todos = getTodos();
+    let todosObjList = getTodosObjList();
 
-    todos.push(todo);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    todosObjList.push(todo)
+    localStorage.setItem('todosObjList', JSON.stringify(todosObjList));
 }
-
 
 
 function removeLocalTodos(todo) {
-    let todos = getTodos();
-
-    todos.splice(todos.indexOf(todo), 1);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    let todosObjList = getTodosObjList();
+    let index = todosObjList.indexOf(todosObjList.find(todoObj => todoObj.text === todo.innerText));
+    todosObjList.splice(index, 1);
+    localStorage.setItem('todosObjList', JSON.stringify(todosObjList));
 }
-
 
 
 function removeAllTodos() {
     localStorage.clear();
     location.reload();
+}
+
+
+function updateStoredClass(todo) {
+    let todosObjList = getTodosObjList();
+    let index = todosObjList.indexOf(todosObjList.find(todoObj => todoObj.text === todo.innerText));
+    todosObjList[index].classes = todo.classList;
+    localStorage.setItem('todosObjList', JSON.stringify(todosObjList));
 }

@@ -255,7 +255,6 @@ i {
         pointer-events: none;
     
         #modal-header {
-            height: 40px;
             @include modal-common($secondary-color, $main-white-color);
     
             display: flex;
@@ -278,10 +277,9 @@ i {
             }
         }
 
-        #modal-footer {
-            height: 40px;
+        /* #modal-footer {
             @include modal-common($dark-white-color, $main-color);
-        }
+        } */
     }
 }
 
@@ -293,7 +291,7 @@ i {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: $main-white-color;
 }
 
 ::-webkit-scrollbar-thumb {

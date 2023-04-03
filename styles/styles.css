@@ -178,9 +178,11 @@ i {
   justify-content: space-between;
   position: relative;
   pointer-events: none;
+  /* #modal-footer {
+      @include modal-common($dark-white-color, $main-color);
+  } */
 }
 #modal #modal-content #modal-header {
-  height: 40px;
   padding: 2px 16px;
   background-color: #fca311;
   color: #e5e5e5;
@@ -201,19 +203,13 @@ i {
 #modal #modal-content #modal-body p {
   height: 100%;
 }
-#modal #modal-content #modal-footer {
-  height: 40px;
-  padding: 2px 16px;
-  background-color: #9a9a9a;
-  color: #14213d;
-}
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #e5e5e5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -335,6 +331,30 @@ i {
   cursor: pointer;
   outline: none;
   color: #e5e5e5;
+}
+
+#copy-clipboard {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: #14213d;
+  color: #e5e5e5;
+  pointer-events: all;
+  transition: all 0.3s;
+}
+#copy-clipboard i {
+  margin-right: 5px;
+}
+#copy-clipboard:hover, #copy-clipboard:focus {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #14213d;
+  background-color: #fca311;
+  color: #14213d;
 }
 
 /* MEDIA QUERIES -> cuando tenga menos de X anchura
