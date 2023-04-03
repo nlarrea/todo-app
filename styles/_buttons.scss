@@ -135,7 +135,28 @@
 
     position: absolute;
     right: calc(0px - gb.$diameter - 5px);
-    z-index: 10;
+    z-index: 1;
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+
+        color: gb.$main-white-color;
+    }
+}
+
+#close-modal {
+    width: gb.$diameter;
+    height: gb.$diameter;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: gb.$main-color;
+    background-color: transparent;
+    border: none;
+
+    pointer-events: all;    // to be able to close the modal using events
 
     &:hover, &:focus {
         cursor: pointer;

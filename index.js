@@ -6,6 +6,11 @@ const filterTodos = document.querySelector('#filter-todos');
 
 const todosWrapper = document.querySelector('#todos-wrapper');
 
+const modal = document.querySelector('#modal');
+const closeModalBtn = document.querySelector('#close-modal');
+
+var todos = [];
+
 
 document.addEventListener('DOMContentLoaded', getLocalTodos);
 addBtn.addEventListener('click', addTodo);
@@ -83,14 +88,24 @@ function editContent(e) {
         todo.classList.toggle('todo-completed');
     }
 
-    // copy text to clipboard
+    // open the modal
     if (item.classList.contains('todo-text')) {
-        const textToCopy = item.innerText;
-
-        // copy to clipboard
-        navigator.clipboard.writeText(textToCopy);
+        setTimeout(() => {
+            modal.style.display = 'block';
+        }, 5);
     }
 }
+
+// close the modal
+closeModalBtn.addEventListener('click', (e) => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target !== modal && e.target.parentElement.id !== 'modal-body') {
+        modal.style.display = 'none';
+    }
+});
 
 
 
