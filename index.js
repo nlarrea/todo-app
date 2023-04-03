@@ -8,6 +8,7 @@ const todosWrapper = document.querySelector('#todos-wrapper');
 
 const modal = document.querySelector('#modal');
 const closeModalBtn = document.querySelector('#close-modal');
+const copyBtn = document.querySelector('#copy-clipboard');
 
 
 document.addEventListener('DOMContentLoaded', getLocalTodos);
@@ -98,11 +99,24 @@ function editContent(e) {
 
     // open the modal
     if (item.classList.contains('todo-text')) {
+        let modalBody = document.querySelector('#modal-body');
+        modalBody.innerHTML = '';
+
         setTimeout(() => {
             modal.style.display = 'block';
         }, 5);
+
+        let newP = document.createElement('p');
+        newP.innerText = item.innerText;
+        modalBody.appendChild(newP);
     }
 }
+
+
+copyBtn.addEventListener('click', (e) => {
+    let modalBody = document.querySelector('#modal-body');
+    navigator.clipboard.writeText(modalBody.children[0].innerText);
+})
 
 
 // close the modal
