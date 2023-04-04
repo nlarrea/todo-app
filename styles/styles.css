@@ -187,7 +187,6 @@ i {
   padding: 2px 16px;
   background-color: #fca311;
   color: #e5e5e5;
-  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,6 +196,7 @@ i {
   padding: 2px 16px;
   background-color: #e5e5e5;
   color: #14213d;
+  padding-top: 6px;
   display: block;
   flex: 1;
   overflow: auto;

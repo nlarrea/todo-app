@@ -257,7 +257,6 @@ i {
     
         #modal-header {
             @include modal-common($secondary-color, $main-white-color);
-            margin-bottom: 4px;
             
             display: flex;
             justify-content: space-between;
@@ -267,6 +266,7 @@ i {
         #modal-body {
             height: 100%;
             @include modal-common();
+            padding-top: 6px;
 
             display: block;
             flex: 1;
