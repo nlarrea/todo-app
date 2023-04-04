@@ -20,13 +20,16 @@ html {
     box-sizing: border-box;
 }
 
+
 body {
     background-color: $main-color;
 }
 
+
 i {
     pointer-events: none;
 }
+
 
 .container {
     width: 100%;
@@ -38,6 +41,7 @@ i {
     grid-template-columns: 2fr 3fr;
     // place-items: center;
 }
+
 
 .left {
     display: grid;
@@ -58,6 +62,87 @@ i {
         color: $main-white-color;
     }
 }
+
+
+#user-inputs-wrapper {
+    width: 100%;
+    height: 100vh;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    #todo-input-wrapper {
+        position: relative;
+
+        #todo-input {
+            height: $diameter;
+    
+            padding: 0 15px;
+    
+            border: 2px solid transparent;
+            border-bottom: 2px solid $main-white-color;
+            border-radius: 0;
+            color: $main-white-color;
+            background-color: transparent;
+
+            transition: all 0.3s ease;
+            -moz-transition: 0.3s ease all;
+            -webkit-transition: 0.3s ease all;
+
+            &:hover {
+                border-radius: 15px;
+                border-bottom: 2px solid $secondary-color;
+            }
+            
+            &:focus, &:valid {
+                outline: none;
+                
+                border-radius: 15px;
+                border: 2px solid $secondary-color;
+            }
+
+            &:focus ~ label, &:valid ~ label {
+                top: -10px;
+                left: 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        label {
+            padding: 0 3px;
+            background-color: $main-color;
+            color: $dark-white-color;
+
+            position: absolute;
+            top: 6px;
+            left: 15px;
+            z-index: 1;
+
+            transition: all 0.2s ease;
+        }
+    }
+
+    #filter-todos {
+        height: $diameter;
+        padding: 0 8px;
+
+        border: 1px solid transparent;
+        border-radius: 15px;
+
+        color: $main-color;
+
+        &:hover, &:focus {
+            cursor: pointer;
+            outline: none;
+            background-color: $main-white-color;
+        }
+    }
+}
+
 
 #todos-wrapper {
     max-width: 100%;
@@ -133,90 +218,12 @@ i {
 }
 
 
-
-#user-inputs-wrapper {
-    width: 100%;
-    height: 100vh;
-
-    padding: 0 5vw;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-    #todo-input-wrapper {
-        position: relative;
-
-        #todo-input {
-            height: $diameter;
-    
-            padding: 0 15px;
-    
-            border: 2px solid transparent;
-            border-bottom: 2px solid $main-white-color;
-            border-radius: 0;
-            color: $main-white-color;
-            background-color: transparent;
-
-            transition: all 0.3s ease;
-            -moz-transition: 0.3s ease all;
-            -webkit-transition: 0.3s ease all;
-
-            &:hover {
-                border-radius: 15px;
-                border-bottom: 2px solid $secondary-color;
-            }
-            
-            &:focus, &:valid {
-                outline: none;
-                
-                border-radius: 15px;
-                border: 2px solid $secondary-color;
-            }
-
-            &:focus ~ label, &:valid ~ label {
-                top: -10px;
-                left: 20px;
-                font-size: 0.8rem;
-            }
-        }
-
-        label {
-            padding: 0 3px;
-            background-color: $main-color;
-            color: $dark-white-color;
-
-            position: absolute;
-            top: 6px;
-            left: 15px;
-            z-index: 1;
-
-            transition: all 0.2s ease;
-        }
-    }
-
-    #filter-todos {
-        height: $diameter;
-        padding: 0 8px;
-
-        border: 1px solid transparent;
-        border-radius: 15px;
-
-        color: $main-color;
-
-        &:focus {
-            outline: none;
-            background-color: $main-white-color;
-        }
-    }
-}
-
 @mixin modal-common($bg-color: $main-white-color, $text-color: $main-color) {
     padding: 2px 16px;
     background-color: $bg-color;
     color: $text-color;
 }
+
 
 #modal {
     width: 80%;

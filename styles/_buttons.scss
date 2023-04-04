@@ -1,8 +1,8 @@
 @use "global" as gb;
 
 #btn-add {
-    width: fit-content;
-    height: fit-content;
+    width: calc(gb.$diameter - 2px);
+    height: calc(gb.$diameter - 2px);
 
     border: none;
     border-radius: 50%;
