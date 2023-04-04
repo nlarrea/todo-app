@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  height: 100vh;
   background-color: #14213d;
 }
 
@@ -217,9 +218,9 @@ i {
   padding: 15px;
   display: none;
   position: absolute;
-  top: 50%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 2;
   border-radius: 15px;
   background-color: #e5e5e5;

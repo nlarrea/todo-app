@@ -130,12 +130,16 @@ closeModalBtn.addEventListener('click', (e) => {
 
 
 window.addEventListener('click', (e) => {
-    if (e.target !== modal && e.target.parentElement.id !== 'modal-body' && e.target.id !== 'copy-clipboard') {
-        modal.style.display = 'none';
-    }
-
-    if (e.target.id !== 'confirmation-popup') {
-        confirmPopup.style.display = 'none';
+    try {
+        if (e.target !== modal && e.target.parentElement.id !== 'modal-body' && e.target.id !== 'copy-clipboard') {
+            modal.style.display = 'none';
+        }
+    
+        if (e.target.id !== 'confirmation-popup') {
+            confirmPopup.style.display = 'none';
+        }
+    } catch (e) {
+        if (e.sender !== 'TypeError') throw e;
     }
 });
 
