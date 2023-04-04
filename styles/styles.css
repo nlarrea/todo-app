@@ -43,13 +43,13 @@ i {
 
 #todos-wrapper {
   max-width: 100%;
-  padding: 10px 15px;
+  padding: 10px 15px 10px 50px;
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   gap: 10px;
 }
 #todos-wrapper .todo-item-wrapper, #todos-wrapper .todo-item-wrapper.todo-completed {
@@ -378,7 +378,7 @@ haciendo scroll abajo
     max-width: 80vw;
   }
   .left {
-    width: 100vw;
+    width: 100%;
     margin-bottom: 40px;
     border: none;
     border-bottom: 3px solid #fca311;

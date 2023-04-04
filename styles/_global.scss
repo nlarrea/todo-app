@@ -61,7 +61,7 @@ i {
 
 #todos-wrapper {
     max-width: 100%;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 50px;
 
     // overflow in Y
     overflow-y: auto;
@@ -70,7 +70,7 @@ i {
     scroll-snap-type: y mandatory;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
     gap: 10px;
     
     .todo-item-wrapper {
