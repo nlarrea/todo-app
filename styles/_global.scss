@@ -4,6 +4,7 @@ $main-color: #14213d;
 $secondary-color: #fca311;
 $main-white-color: #e5e5e5;
 $dark-white-color: #9a9a9a;
+$red-color: #e0607e;
 
 $diameter: 32px;
 
@@ -40,6 +41,8 @@ i {
     display: grid;
     grid-template-columns: 2fr 3fr;
     // place-items: center;
+
+    position: relative;
 }
 
 
@@ -246,6 +249,9 @@ i {
 
     overflow: hidden;
 
+    animation: fade-in 0.3s ease;
+
+
     #modal-content {
         width: 100%;
         height: 100%;
@@ -289,6 +295,48 @@ i {
         /* #modal-footer {
             @include modal-common($dark-white-color, $main-color);
         } */
+    }
+}
+
+
+// DELETE ALL -> CONFIRMATION POPUP STYLES
+
+#confirmation-popup {
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+
+    // display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    border-radius: 15px;
+    background-color: $main-white-color;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    animation: fade-in 0.4s ease;
+
+    div {
+        margin-right: 15px;
+        margin-top: 10px;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 

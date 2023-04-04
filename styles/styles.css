@@ -24,6 +24,7 @@ i {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 3fr;
+  position: relative;
 }
 
 .left {
@@ -169,6 +170,7 @@ i {
   transform: translate(-50%, -50%);
   z-index: 2;
   overflow: hidden;
+  animation: fade-in 0.3s ease;
 }
 #modal #modal-content {
   width: 100%;
@@ -207,6 +209,39 @@ i {
   height: 100%;
 }
 
+#confirmation-popup {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border-radius: 15px;
+  background-color: #e5e5e5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  animation: fade-in 0.4s ease;
+}
+#confirmation-popup div {
+  margin-right: 15px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -356,6 +391,34 @@ i {
   border: 1px solid #14213d;
   background-color: #fca311;
   color: #14213d;
+}
+
+#confirm-empty {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  background-color: #e0607e;
+}
+#confirm-empty:hover, #confirm-empty:focus {
+  cursor: pointer;
+  outline: none;
+  opacity: 0.9;
+}
+
+#deny-empty {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  background-color: #9a9a9a;
+}
+#deny-empty:hover, #deny-empty:focus {
+  cursor: pointer;
+  outline: none;
+  opacity: 0.9;
 }
 
 /* MEDIA QUERIES -> cuando tenga menos de X anchura
