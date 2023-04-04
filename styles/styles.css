@@ -160,6 +160,7 @@ i {
   border: 1px solid #fca311;
   border-radius: 16px;
   background-color: #e5e5e5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   display: none;
   position: fixed;
   top: 50%;
@@ -186,6 +187,7 @@ i {
   padding: 2px 16px;
   background-color: #fca311;
   color: #e5e5e5;
+  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -228,6 +228,7 @@ i {
     border: 1px solid $secondary-color;
     border-radius: 16px;
     background-color: $main-white-color;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 
     display: none;
     position: fixed;
@@ -256,7 +257,8 @@ i {
     
         #modal-header {
             @include modal-common($secondary-color, $main-white-color);
-    
+            margin-bottom: 4px;
+            
             display: flex;
             justify-content: space-between;
             align-items: center;
