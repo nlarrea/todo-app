@@ -209,6 +209,8 @@
     font-weight: bold;
     color: white;
 
+    pointer-events: all;
+
     &:hover, &:focus {
         cursor: pointer;
         outline: none;

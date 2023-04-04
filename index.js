@@ -10,6 +10,10 @@ const modal = document.querySelector('#modal');
 const closeModalBtn = document.querySelector('#close-modal');
 const copyBtn = document.querySelector('#copy-clipboard');
 
+const confirmPopup = document.querySelector('#confirmation-popup');
+const confirmBtn = document.querySelector('#confirm-empty');
+const denyBtn = document.querySelector('#deny-empty');
+
 
 document.addEventListener('DOMContentLoaded', getLocalTodos);
 addBtn.addEventListener('click', addTodo);
@@ -129,6 +133,10 @@ window.addEventListener('click', (e) => {
     if (e.target !== modal && e.target.parentElement.id !== 'modal-body' && e.target.id !== 'copy-clipboard') {
         modal.style.display = 'none';
     }
+
+    if (e.target.id !== 'confirmation-popup') {
+        confirmPopup.style.display = 'none';
+    }
 });
 
 
@@ -188,8 +196,18 @@ function removeLocalTodos(todo) {
 
 
 function removeAllTodos() {
-    localStorage.clear();
-    location.reload();
+    setTimeout(() => {
+        confirmPopup.style.display = 'block';
+    }, 5);
+
+    confirmBtn.addEventListener('click', (e) => {
+        localStorage.clear();
+        location.reload();
+    });
+
+    denyBtn.addEventListener('click', (e) => {
+        confirmPopup.style.display = 'none';
+    });
 }
 
 
