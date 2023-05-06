@@ -11,7 +11,7 @@ const modal = document.querySelector('#modal');
 const closeModalBtn = document.querySelector('#close-modal');
 const copyBtn = document.querySelector('#copy-clipboard');
 
-const confirmPopup = document.querySelector('#confirmation-popup');
+const confirmPopup = document.querySelector('#popup-wrapper');
 const confirmBtn = document.querySelector('#confirm-empty');
 const denyBtn = document.querySelector('#deny-empty');
 
@@ -136,7 +136,7 @@ window.addEventListener('click', (e) => {
             modalWrapper.style.display = 'none';
         }
     
-        if (e.target.id !== 'confirmation-popup') {
+        if (e.target.id === 'popup-wrapper') {
             confirmPopup.style.display = 'none';
         }
     } catch (e) {

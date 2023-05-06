@@ -241,7 +241,7 @@ i {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    
+
     #modal {
         width: 80%;
         max-width: 500px;
@@ -315,17 +315,30 @@ i {
 
 // DELETE ALL -> CONFIRMATION POPUP STYLES
 
+#popup-wrapper {
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba($main-color, 0.8);
+
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
 #confirmation-popup {
     width: fit-content;
     height: fit-content;
     padding: 15px;
 
-    display: none;
+    // display: none;
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
 
     border-radius: 15px;
     background-color: $main-white-color;

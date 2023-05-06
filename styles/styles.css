@@ -220,18 +220,29 @@ i {
   height: 100%;
 }
 
+#popup-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 33, 61, 0.8);
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
 #confirmation-popup {
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 15px;
-  display: none;
   position: absolute;
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 3;
   border-radius: 15px;
   background-color: #e5e5e5;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
