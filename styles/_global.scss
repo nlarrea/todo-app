@@ -229,17 +229,11 @@ i {
 }
 
 
-#modal {
-    width: 80%;
-    max-width: 500px;
+#modal-wrapper {
+    width: 100vw;
+    height: 100vh;
 
-    height: 80%;
-    max-height: 300px;
-
-    border: 1px solid $secondary-color;
-    border-radius: 16px;
-    background-color: $main-white-color;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background: rgba($main-color, 0.8);
 
     display: none;
     position: fixed;
@@ -247,55 +241,74 @@ i {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-
-    overflow: hidden;
-
-    animation: fade-in 0.2s ease;
-
-
-    #modal-content {
-        width: 100%;
-        height: 100%;
-
-        padding: 0;
-        margin: auto;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        position: relative;
-
-        // to not close the modal when clicking on its content
-        pointer-events: none;
     
-        #modal-header {
-            @include modal-common($secondary-color, $main-white-color);
-            
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #modal-body {
+    #modal {
+        width: 80%;
+        max-width: 500px;
+    
+        height: 80%;
+        max-height: 300px;
+    
+        border: 1px solid $secondary-color;
+        border-radius: 16px;
+        background-color: $main-white-color;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    
+        // display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    
+        overflow: hidden;
+    
+        animation: fade-in 0.2s ease;
+    
+        #modal-content {
+            width: 100%;
             height: 100%;
-            @include modal-common();
-            padding-top: 6px;
-
-            display: block;
-            flex: 1;
-            overflow: auto;
-
-            pointer-events: all;
-
-            p {
-                height: 100%;
+    
+            padding: 0;
+            margin: auto;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+    
+            position: relative;
+    
+            // to not close the modal when clicking on its content
+            pointer-events: none;
+        
+            #modal-header {
+                @include modal-common($secondary-color, $main-white-color);
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
+    
+            #modal-body {
+                height: 100%;
+                @include modal-common();
+                padding-top: 6px;
+    
+                display: block;
+                flex: 1;
+                overflow: auto;
+    
+                pointer-events: all;
+    
+                p {
+                    height: 100%;
+                }
+            }
+    
+            /* #modal-footer {
+                @include modal-common($dark-white-color, $main-color);
+            } */
         }
-
-        /* #modal-footer {
-            @include modal-common($dark-white-color, $main-color);
-        } */
     }
 }
 

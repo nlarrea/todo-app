@@ -6,6 +6,7 @@ const filterTodos = document.querySelector('#filter-todos');
 
 const todosWrapper = document.querySelector('#todos-wrapper');
 
+const modalWrapper = document.querySelector('#modal-wrapper');
 const modal = document.querySelector('#modal');
 const closeModalBtn = document.querySelector('#close-modal');
 const copyBtn = document.querySelector('#copy-clipboard');
@@ -107,7 +108,7 @@ function editContent(e) {
         modalBody.innerHTML = '';
 
         setTimeout(() => {
-            modal.style.display = 'block';
+            modalWrapper.style.display = 'block';
         }, 5);
 
         let newP = document.createElement('p');
@@ -125,14 +126,14 @@ copyBtn.addEventListener('click', (e) => {
 
 // close the modal
 closeModalBtn.addEventListener('click', (e) => {
-    modal.style.display = 'none';
+    modalWrapper.style.display = 'none';
 });
 
 
 window.addEventListener('click', (e) => {
     try {
-        if (e.target !== modal && e.target.parentElement.id !== 'modal-body' && e.target.id !== 'copy-clipboard') {
-            modal.style.display = 'none';
+        if (e.target === modalWrapper) {
+            modalWrapper.style.display = 'none';
         }
     
         if (e.target.id !== 'confirmation-popup') {
